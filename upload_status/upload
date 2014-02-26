@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# used for uploading some basic status information to server by curl
+# example:
+#    upload 127.0.0.1 80 /raspberry
+#    upload www.test.com 80 /raspberry
+
+if [ $# != 3 ]; then
+    echo "usage: upload www.test.com 80 /raspberry" > /dev/stderr;
+    exit 1
+fi
+
+server=$1
+port=$2
+path=$3
+
+# 1. upload the network status
+ifconfig > /tmp/netinfo
+curl --data-binary @/tmp/netinfo http://$server:$port$path
