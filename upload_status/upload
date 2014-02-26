@@ -15,5 +15,5 @@ port=$2
 path=$3
 
 # 1. upload the network status
-ifconfig > /tmp/netinfo
-curl --data-binary @/tmp/netinfo http://$server:$port$path
+/sbin/ifconfig > /tmp/netinfo
+/usr/bin/curl --data-binary @/tmp/netinfo http://$server:$port$path
