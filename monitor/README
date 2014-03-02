@@ -1,3 +1,7 @@
-main program: upload
+program: upload
+desc: post the ip address information to your server by http protocol
 sub programs:
   - getip
+
+program: wpadog
+desc: set up as a cron job, run it every 5 minutes, once the wpa_supplicant(wireless manager) is down, restart it.
