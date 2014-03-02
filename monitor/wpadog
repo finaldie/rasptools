@@ -9,7 +9,7 @@ alive=`ps aux | grep wpa_supplicant | grep -v grep | wc -l`;
 
 if [ "$alive" = "0" ]; then
 	echo "$now : wpa_supplicant is gone, restarting it..." >> $logfile;
-	#/sbin/wpa_supplicant -s -B -P /var/run/wpa_supplicant.wlan0.pid -i wlan0 -D nl80211,wext -c /etc/wpa_supplicant/wpa_supplicant.conf -f /var/log/wpa_supplicant.log;
+	/sbin/wpa_supplicant -s -B -P /var/run/wpa_supplicant.wlan0.pid -i wlan0 -D nl80211,wext -c /etc/wpa_supplicant/wpa_supplicant.conf -f /var/log/wpa_supplicant.log;
 	echo "$now : wpa_supplicant restart done" >> $logfile;
 else
 	echo "$now : wpa_supplicant is alive" >> $logfile
